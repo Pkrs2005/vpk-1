@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Responses</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+<h1>Все отзывы</h1>
+
+<table border="1">
+
+    <tr>
+        <th>Что понравилось</th>
+        <th>Что улучшить</th>
+        <th>Оценка</th>
+    </tr>
+
+    <% responses.forEach(r => { %>
+
+        <tr>
+            <td><%= r.liked %></td>
+            <td><%= r.improve %></td>
+            <td><%= r.rating %></td>
+        </tr>
+
+    <% }) %>
+
+</table>
+
+<br>
+
+<a href="/">На главную</a>
+
+</body>
+</html>

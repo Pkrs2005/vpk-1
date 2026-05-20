@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Feedback</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+<h1>Обратная связь по курсу</h1>
+
+<form action="/submit" method="POST">
+
+    <% questions.forEach(q => { %>
+
+        <div>
+            <label><%= q.question %></label>
+
+            <% if (q.id === "rating") { %>
+
+                <input type="number"
+                       name="<%= q.id %>"
+                       min="1"
+                       max="5"
+                       required>
+
+            <% } else { %>
+
+                <textarea name="<%= q.id %>" required></textarea>
+
+            <% } %>
+        </div>
+
+    <% }) %>
+
+    <button type="submit">
+        Отправить
+    </button>
+
+</form>
+
+<br>
+
+<a href="/dashboard">Дашборд преподавателя</a>
+
+</body>
+</html>
