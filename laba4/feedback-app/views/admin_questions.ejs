@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Управление вопросами</title>
+</head>
+<body>
+    <h1>Вопросы</h1>
+    <a href="/admin/questions/new">+ Добавить вопрос</a>
+    <a href="/admin/results">Результаты</a>
+    <hr>
+    <table border="1">
+        <tr><th>Текст вопроса</th><th>Правильный ответ</th><th>Действия</th></tr>
+        <% questions.forEach(q => { %>
+        <tr>
+            <td><%= q.text %></td>
+            <td><%= q.correct_answer %></td>
+            <td>
+                <a href="/admin/questions/edit/<%= q.id %>">Редактировать</a>
+                <form action="/admin/questions/delete/<%= q.id %>" method="POST" style="display:inline">
+                    <button type="submit" onclick="return confirm('Удалить?')">Удалить</button>
+                </form>
+            </td>
+        </tr>
+        <% }) %>
+    </table>
+    <a href="/logout">Выйти</a>
+</body>
+</html>

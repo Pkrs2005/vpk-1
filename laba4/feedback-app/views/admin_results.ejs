@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Результаты тестирования</title>
+</head>
+<body>
+    <h1>Статистика по пользователям</h1>
+    <a href="/admin/questions">Управление вопросами</a>
+    <hr>
+    <table border="1">
+        <tr><th>Пользователь</th><th>Правильно</th><th>Всего</th><th>Процент</th></tr>
+        <% stats.forEach(s => { %>
+        <tr>
+            <td><%= s.login %></td>
+            <td><%= s.correct_answers %></td>
+            <td><%= s.total_questions %></td>
+            <td><%= s.percentage %>%</td>
+        </tr>
+        <% }) %>
+    </table>
+
+    <h2>Детальные ответы</h2>
+    <table border="1">
+        <tr><th>Пользователь</th><th>Вопрос</th><th>Ответ</th><th>Результат</th><th>Дата</th></tr>
+        <% details.forEach(d => { %>
+        <tr style="<%= d.is_correct ? '' : 'background:#ffe0e0' %>">
+            <td><%= d.login %></td>
+            <td><%= d.question %></td>
+            <td><%= d.user_answer %></td>
+            <td><%= d.is_correct ? '✓ Правильно' : '✗ Неправильно' %></td>
+            <td><%= d.answered_at %></td>
+        </tr>
+        <% }) %>
+    </table>
+    <a href="/logout">Выйти</a>
+</body>
+</html>

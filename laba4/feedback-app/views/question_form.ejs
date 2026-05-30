@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title><%= question ? 'Редактировать' : 'Новый' %> вопрос</title>
+</head>
+<body>
+    <h1><%= question ? 'Редактировать вопрос' : 'Новый вопрос' %></h1>
+    <form action="<%= question ? '/admin/questions/edit/' + question.id : '/admin/questions/new' %>" method="POST">
+        <p>Текст вопроса:</p>
+        <textarea name="text" rows="3" cols="50" required><%= question ? question.text : '' %></textarea>
+        <p>Правильный ответ:</p>
+        <input type="text" name="correct_answer" value="<%= question ? question.correct_answer : '' %>" required>
+        <br><br>
+        <button type="submit">Сохранить</button>
+    </form>
+    <a href="/admin/questions">Назад</a>
+</body>
+</html>
