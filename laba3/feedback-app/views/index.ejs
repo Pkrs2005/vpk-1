@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Feedback</title>
+</head>
+<body>
+
+<h1>Обратная связь</h1>
+
+<form action="/submit" method="POST">
+
+    <% questions.forEach(q => { %>
+
+        <p><%= q.question %></p>
+
+        <% if (q.id === "rating") { %>
+
+            <input
+                type="number"
+                min="1"
+                max="5"
+                name="<%= q.id %>"
+                required
+            >
+
+        <% } else { %>
+
+            <textarea
+                name="<%= q.id %>"
+                required
+            ></textarea>
+
+        <% } %>
+
+        <br><br>
+
+    <% }) %>
+
+    <button type="submit">
+        Отправить
+    </button>
+
+</form>
+
+<br>
+
+<a href="/logout">Выйти</a>
+
+</body>
+</html>

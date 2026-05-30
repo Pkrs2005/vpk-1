@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard</title>
+</head>
+<body>
+
+<h1>Статистика</h1>
+
+<p>Количество отзывов: <%= count %></p>
+
+<p>Средняя оценка: <%= average %></p>
+
+<h2>Отзывы студентов</h2>
+
+<table border="1">
+    <tr>
+        <th>Студент</th>
+        <th>Что понравилось</th>
+        <th>Что улучшить</th>
+        <th>Оценка</th>
+    </tr>
+
+    <% responses.forEach(r => { %>
+        <tr>
+            <td><%= r.author %></td>
+            <td><%= r.liked %></td>
+            <td><%= r.improve %></td>
+            <td><%= r.rating %></td>
+        </tr>
+    <% }) %>
+</table>
+
+<br>
+
+<a href="/logout">Выйти</a>
+
+</body>
+</html>

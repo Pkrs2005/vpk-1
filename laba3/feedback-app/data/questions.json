@@ -1,0 +1,14 @@
+[
+  {
+    "id": "liked",
+    "question": "Что понравилось?"
+  },
+  {
+    "id": "improve",
+    "question": "Что улучшить?"
+  },
+  {
+    "id": "rating",
+    "question": "Оценка от 1 до 5"
+  }
+]
