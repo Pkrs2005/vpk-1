@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Тестирование</title>
+</head>
+<body>
+    <h1>Ответьте на вопросы</h1>
+    <form action="/test/submit" method="POST">
+        <% questions.forEach(q => { %>
+            <p><strong><%= q.text %></strong></p>
+            <input type="text" name="q<%= q.id %>" required>
+            <br><br>
+        <% }) %>
+        <button type="submit">Отправить</button>
+    </form>
+    <a href="/logout">Выйти</a>
+</body>
+</html>
